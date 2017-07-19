@@ -12,6 +12,7 @@
   (prop/for-all [v (gen/vector gen/int)]
     (= (sort v) (sort (sort v)))))
 
+
 (defspec sort-is-idempotent ;; test name
   10 ;; number of iterations
   sort-idempotent-prop) ;; property being tested
@@ -27,3 +28,4 @@
     (let [response (client/get sample-webapi) ;; see core.clj
           body (json/read-str (:body response))]
       (is (= 1 (get body "userId"))))))
+
